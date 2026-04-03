@@ -1,0 +1,1201 @@
+ @font-face {
+    font-family: 'PlayfullRocket';
+    src: url(fonts/PlayfullRocket.ttf);
+ }
+
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000618, #203263);
+    scroll-behavior: smooth;
+}
+.container{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+}
+
+header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 5px 60px;
+    z-index: 999;
+    background-color: #4b4b4b5b;
+    backdrop-filter: blur(10px);
+}
+
+.head-left{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.head-left img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+
+}
+
+/*MUSIC BUTTON*/
+
+.music-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;            /* ← icon size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;               /* ← padding around icon */
+    margin-right: 10px;         /* ← space between button and logo */
+    border-radius: 50%;         /* ← makes it circular */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.music-btn:hover {
+    color: #00cfff;
+    text-shadow:
+        0 0 6px #00cfff,
+        0 0 14px #00cfff,
+        0 0 28px #00a0eb;
+}
+
+/* Glowing when music is ON */
+.music-btn.playing {
+    color: #00cfff;
+    text-shadow:
+        0 0 6px #00cfff,
+        0 0 14px #00cfff,
+        0 0 28px #00a0eb;
+}
+
+.head-left a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;      
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    font-family: 'PlayfullRocket', Tahoma, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 8px 14px;  /* inner spacing */
+    letter-spacing: 1px;
+    background-color: transparent;
+    border: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #00cfff;
+    text-shadow:
+        0 0 6px #00cfff,
+        0 0 14px #00cfff,
+        0 0 28px #00a0eb;
+}
+
+.nav-btn.active {
+    color: #00cfff;
+    text-shadow:
+        0 0 6px #00cfff,
+        0 0 14px #00cfff,
+        0 0 28px #00a0eb;
+}
+
+.nav-social {
+    color: white;
+    font-size: 24px;     
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-social:hover {
+    color: #00cfff;
+    text-shadow:
+        0 0 6px #00cfff,
+        0 0 14px #00cfff,
+        0 0 28px #00a0eb;
+}
+
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.tt-section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.tt-vid{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tt-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.tt-info{
+    z-index: 1;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+}
+
+.tt-info h1{
+    font-size: 150px;
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background: linear-gradient(to left, #ffffff, #f5f5f5, #e3e3e3, #d3d3d3, #fafafa);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    
+}
+
+
+.tt-info p{
+    font-size: 20px;
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #00a0eb;
+    max-width: 210px;
+}
+
+.tt-info button{
+    background-color: #1F57A1;
+    border: 2px solid #1F57A1;
+    padding: 10px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.tt-info button:hover{
+    background-color: transparent;
+    color: #1F57A1;
+    border: 2px solid #1F57A1;
+}
+
+/*
+
+ .gaming-text{
+    color: #010046;
+    font-size: 120px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+  
+}
+
+*/ 
+
+/* ABOUT SECTION */
+
+.about-section{
+   font-family: 'PlayfullRocket', Tahoma, Sans-serif;
+   width: 100%;
+   height: 100%;
+   margin-top: 200px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: #010046;
+}
+
+.image-box{
+   width: 360;
+   height: 510px;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50px; 
+}
+
+.image-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-section h3{
+    color: rgb(245, 245, 245);
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.about-section h1{
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    font-size: 100px;
+    max-width: 1150px;
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+}
+
+@keyframes animate-gradient {
+    to{
+        background-position: 200%;
+    }
+   
+}
+
+.about-section h4{
+    font-weight: 100;
+    font-size: 30px;
+    color: aliceblue;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.about-section p{
+    font-weight: 100;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #00a0eb;
+    max-width: 425px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.info-section{
+    display: flex;
+    flex-direction: column;
+    /* center the section horizontally */
+    width: 80%;
+    margin: 100px auto 0;
+    padding-left: 20px;
+    text-align: center;
+}
+
+
+.info-section h3{
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    color: aliceblue;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.info-section p{
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    margin: 5px auto 0;
+    color: rgb(0, 160, 235);
+    max-width: 400px;
+    line-height: 25px;
+    text-align: center;
+}
+.info-cards{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    width: auto;
+    justify-content: center;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.card{
+    position: relative;
+    width: auto;
+    height: 40vh;
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.card h1{
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    left: 5%;
+    font-family: 'PlayfullRocket',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    z-index: 1;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+    max-width: 250px;
+
+}
+
+.card p{
+
+    position: absolute;
+    top: 80px;
+    left: 5%;
+    z-index: 1;
+    max-width: 250px;
+    color:rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 100;
+    
+    
+}
+
+.card video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card button{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    padding: 10px 25px;
+    border: 1px solid #1F57A1;
+    background-color: darkblue;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 0 5px aquamarine;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover{
+    box-shadow: 0 0 15px aqua;
+    opacity: 0.7;
+}
+
+.card:hover{
+    box-shadow: 0 0 15px aqua;
+}
+
+.card:nth-child(1){
+    grid-column: span 2;
+
+}
+
+.card:nth-child(2){
+    grid-column: span 2;
+    height: 83vh;
+}
+
+ /* MAP PAGE STYLES */
+
+.map-section {
+    min-height: 10px;
+    padding: 80px 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.map-image-box {
+    width: 360px;
+    height: 510px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.map-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.map-section > h1 {
+    color: rgb(0, 160, 235);
+    letter-spacing: 6px;
+    font-size: 110px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+
+}
+
+.bodyMap-section {
+    width: 100%;
+    text-align: center;
+}
+
+.map-Image-Box {
+    width: 360px;
+    height: 510px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.map-Image-Box img {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.map-section  h5 {
+
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    font-weight: 100;
+    margin: 0 auto;
+    color: #ffffff;
+    max-width: 1000px;
+    line-height: 150px;
+    display: block;
+    width: 80;
+
+ }
+
+  .map-section h6 {
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    font-weight: 100;;
+    margin: 0 auto;
+    color: #ffffff;
+    max-width: 1000px;
+    line-height: 30px;
+    padding-top: 30px;
+    display: block;
+    width: 80;
+
+ }
+    .map-section p {
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    font-weight: 100;
+    margin: -100px auto 0;
+    color: #ffffff;
+    max-width: 1000px;
+    line-height: 10px;
+    display: block;
+    width: 80;
+
+ }
+
+/* ABOUT US PAGE STYLES */
+
+    .aboutUs-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+
+}
+    .aboutUs-hero {
+    width: 100%;
+    min-height: 220px;   
+    display: flex;       
+    align-items: left;
+    justify-content: left;      
+    padding: 40px;        
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #000618, #0a1a3a);
+}
+    .aboutUs-hero h1 {
+    color: rgb(0, 160, 235);
+    letter-spacing: 6px;
+    font-size: 110px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 150px;
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+  
+}
+    .aboutUs-content {
+    width: 100%;
+    max-width: 1700px;          
+    padding: 40px 40px 40px 150px;         
+    box-sizing: border-box;
+    text-align: center;         
+}
+    .aboutUs-content h2 {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 56px;            
+    font-weight: 400;
+    color: #cdcdcd;
+    margin-bottom: 8px;         
+    text-align: left;
+}
+    .aboutUs-underline {
+    width: 50px;                
+    height: 4px;                
+    background-color: #00a0eb;
+    margin: 0 0 40px 0;        
+    border-radius: 2px;
+}
+    .aboutUs-content p {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 26px;           
+    font-weight: 100;
+    color: #cdcdcd;
+    line-height: 1.7;          
+    margin-bottom: 28px;       
+    text-align: left;
+    max-width: 100%;           
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.aboutUs-games {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;            
+    justify-content: center;  
+    align-items: flex-start;  
+    gap: 50px;                  
+    margin-top: 60px;           
+    margin-bottom: 40px;    
+    width: 100%;    
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    gap: 15px;                  
+}
+
+.game-img-box {
+    width: 125px;               
+    height: 125px;            
+    border-radius: 16px;       
+    overflow: hidden;
+}
+
+.game-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-item p {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 100;           
+    color: #cdcdcd;
+    text-align: center;
+    margin: 0;
+}
+
+/*CHARACTER SECTION*/
+
+/* Outer wrapper — full viewport height */
+    .char-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;              /* ← height of the whole section */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;  /* pushes selector to the bottom */
+}
+
+/* --- BACKGROUND SLIDESHOW --- */
+    .char-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Each slide fades in and out automatically — no JavaScript needed */
+    .char-bg-slide {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);          
+    opacity: 0;
+    /* Changed to 12s total cycle for a slower, more "magical" feel */
+    animation: slowMoSlideFade 12s infinite ease-in-out;
+}
+
+/* First slide starts immediately */
+    .char-bg-slide:nth-child(1) {
+    animation-delay: 0s;        /* ← starts right away */
+}
+
+/* Second slide starts after 5 seconds */
+    .char-bg-slide:nth-child(2) {
+    animation-delay: 6s;        /* ← change this to match your interval */
+}
+
+    @keyframes slowMoSlideFade {
+    0% { 
+        opacity: 0; 
+        transform: scale(1.0); /* Start at normal size */
+    }
+    15% { 
+        opacity: 1; /* Smooth fade in */
+    }
+    50% { 
+        opacity: 1; /* Hold visibility */
+    }
+    65% { 
+        opacity: 0; /* Smooth fade out */
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(1.12); /* Slowly zoom in to 112% over the whole duration */
+    }
+}
+
+/* Dark overlay on top of background so text is readable */
+    .char-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* ← darkness of overlay, increase for darker */
+    z-index: 1;
+}
+
+/* --- MAIN DISPLAY AREA (name, VA, desc, art) --- */
+    .char-main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    padding: 100px 60px 20px;   /* ← top right/left bottom padding of main area */
+    gap: 40px;                  /* ← gap between info and character art */
+    flex: 1;
+}
+
+/* LEFT: Info panel */
+    .char-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                  /* ← gap between name, VA row, and desc box */
+    max-width: 420px;          /* ← max width of the info panel */
+    margin-top: 20px;
+}
+
+/* Character name */
+    .char-name {
+    font-family: 'PlayfullRocket', Impact, sans-serif;
+    font-size: 80px;            /* ← size of character name */
+    font-weight: 900;
+    color: #ffffff;
+    position: relative;
+    margin: 0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0,160,235,0.6);
+}
+
+/* VA row (voice actor label + mic button) */
+    .char-va-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 12px;                  /* ← gap between VA name and mic button */
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 16px;          /* ← padding inside VA row */
+    border-radius: 8px;
+    width: fit-content;
+}
+
+    .char-va-label {
+    font-family: Tahoma, sans-serif;
+    font-size: 18px;            /* ← VA name font size */
+    color: #ffffff;
+}
+
+/* Mic / play voice button */
+    .char-voice-btn {
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    font-size: 20px;            /* ← mic icon size */
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+    .char-voice-btn:hover {
+    background-color: rgba(0,160,235,0.5);
+}
+
+/* Description text box */
+    .char-desc-box {
+    background-color: rgba(0, 0, 0, 0.5);  /* ← background of desc box */
+    position: relative;
+    border-left: 3px solid #00a0eb;         /* ← left accent line color */
+    padding: 14px 16px;                     /* ← padding inside desc box */
+    border-radius: 4px;
+    max-width: 400px;                       /* ← max width of desc box */
+}
+
+    .char-desc-box p {
+    font-family: Tahoma, sans-serif;
+    font-size: 15px;            /* ← description font size */
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* CENTER: Character full art */
+    .char-art {
+    position: absolute;
+    bottom: 10px;               /* ← how far up from the bottom the art sits */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    height: 75vh;               /* ← height of the character art */
+    pointer-events: none;
+}
+
+    .char-art img {
+    height: 115%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(0,160,235,0.3)); /* ← glow under character */
+}
+
+/* --- BOTTOM CHARACTER SELECTOR --- */
+    .char-selector {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;    /* ← centers the 4 thumbnails */
+    align-items: flex-end;
+    gap: 24px;                   /* ← gap between each thumbnail */
+    padding-bottom: 16px;
+}
+
+/* Each character thumbnail card */
+    .char-thumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 12px;          /* ← padding inside each thumbnail */
+    background-color: rgba(0,0,0,0.4);
+    border-top: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100px;               /* ← width of each thumbnail card */
+}
+
+    .char-thumb:hover {
+    background-color: rgba(0,160,235,0.2);
+    border-top-color: #00a0eb;
+}
+
+/* Active/selected thumbnail */
+    .char-thumb.active {
+    background-color: rgba(0,160,235,0.25);
+    border-top-color: #00cfff;
+}
+
+/* Thumbnail image */
+    .char-thumb img {
+    width: 70px;                /* ← thumbnail image size */
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Thumbnail character name label */
+    .char-thumb span {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 13px;            /* ← thumbnail label font size */
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+/* RIGHT SIDE: Video panel */
+    .char-video-panel {
+    position: absolute;
+    bottom: 150px;               /* ← distance from bottom */
+    right: 80px;                /* ← distance from right edge */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;                  /* ← gap between videos if multiple */
+    width: 320px;               /* ← width of the video panel */
+}
+
+    .char-video-panel video {
+    width: 100%;
+    border-radius: 12px;        /* ← roundness of video corners */
+    border: 1px solid rgba(255,255,255,0.2);
+    object-fit: cover;
+    height: 180px;              /* ← height of each video */
+    box-shadow:
+        0 0 10px rgba(0, 160, 235, 0.4),   /* ← inner glow size */
+        0 0 25px rgba(0, 160, 235, 0.3),   /* ← mid glow size */
+        0 0 50px rgba(0, 160, 235, 0.15);  /* ← outer glow size */
+}
+
+/*MEDIA SECTION*/
+
+    .media-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+    .media-hero {
+    width: 100%;
+    min-height: 220px;   
+    display: flex;       
+    align-items: left;
+    justify-content: left;      
+    padding: 40px;        
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #000618, #0a1a3a);
+}
+    .media-hero h1 {
+    color: rgb(0, 160, 235);
+    letter-spacing: 6px;
+    font-size: 110px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 150px;
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+}
+    .media-content {
+    width: 100%;
+    max-width: 1700px;          
+    padding: 40px 40px 40px 150px;         
+    box-sizing: border-box;
+    text-align: center;         
+}
+    .media-content h3 {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 56px;            
+    font-weight: 400;
+    color: #cdcdcd;
+    margin-bottom: 8px;         
+    text-align: left;
+}
+    .media-underline {
+    width: 25px;                
+    height: 4px;                
+    background-color: #00a0eb;
+    margin: 0 0 400px 0;        
+    border-radius: 2px;
+}
+
+/*CONTACT SECTION */
+
+.contact-section{
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.contact-section .img1{
+    position: absolute;
+    top: 250px;
+    right: 20px;
+    height: 250px;
+    clip-path: polygon(92% 7%, 91% 90%, 5% 100%, 7% 6%, 57% 0%);
+}
+
+.contact-section .img2{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 200px;
+    clip-path: polygon(92% 13%, 94% 100%, 0% 84%, 0% 30%, 57% 0%);
+}
+
+.contact-section .img3{
+    position: absolute;
+    left: 5%;
+    bottom: -80px;
+    height: 250px;
+    width: 250px;
+    clip-path: polygon(98% 0%, 92% 91%, 10% 100%, 0% 30%, 26% 0%);
+}
+
+.contact-section p{
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(165, 162, 162);
+    font-size: 30px;
+    max-width: 400px;
+    margin-top: 100px;
+}
+
+.contact-section h1{
+    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    max-width: 550px;
+    text-align: center;
+    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+}
+
+.contact-section button{
+    padding: 10px 30px;
+    border: 1px solid #1F57A1;
+    background-color: darkblue;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 0 5px aquamarine;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-section button:hover{
+    box-shadow: 0 0 15px aqua;
+    opacity: 0.7;
+}
+
+/* FOOTER SECTION */
+
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #384c83;
+    backdrop-filter: blur(10px);
+    position: relative;
+    height: 250;
+    gap: 10px;
+}
+
+.footer .img4{
+    width: 150px;
+    height: auto;
+    margin-top: 25px;
+}
+
+.footer .img5{
+    width: 250px;
+    height: auto;
+    margin-top: 15px;
+
+}
+
+.footer p{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    
+}
+
+.footer ul{
+    display: flex;
+    list-style: none;
+    margin:  0;
+    padding: 0;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.footer a{
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 7px 7px;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+
+.autoBlur{
+    animation: autoBlurAnimation linear both;
+    animation-timeline: view();
+}
+@keyframes autoBlurAnimation {
+    0%{
+        filter: blur(40px);
+    }
+    40%,60%{
+        filter: blur(0px);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100%{
+        filter: blur(40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+.autoTakeFull{
+    animation: autoTakeFullAnimation both;
+    animation-timeline: view(70% 65%);
+}
+
+@keyframes autoTakeFullAnimation {
+    to{
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        margin-bottom: 100px;
+    }
+    
+}
+
+.autoDisplay{
+    animation: autoDisplayAnimation both;
+    animation-timeline: view(70% 5%);
+}
+
+@keyframes autoDisplayAnimation {
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    } to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media screen and (max-width: 650px){
+    header{
+        padding: 0px 10px;
+    }
+    .head-left button{
+        display: none;
+    }
+    .head-right a{
+        padding: 0 5px;
+        font-size: 12px;
+    }
+    .tt-info{
+        left: 5%;
+    }
+    .tt-section h1{
+        font-size: 90px;
+    }
+    .about-section{
+        margin: 0;
+    }
+    .about-section h1{
+        font-size: 50px;
+    }
+    .image-box{
+        width: 300px;
+        height: 500px;
+    }
+    .about-section h4, .about-section h5{
+        max-width: 350px;
+        text-align: center;
+    }
+    .contact-section .img1{
+        height: 200px;
+        width: 150px;
+        right: -80px;
+        top: 10px;
+    }
+    .contact-section .img2{
+        height: 180px;
+        width: 150px;
+        left: -80px;
+        top: 30px;
+    }
+    .contact-section .img3{
+        height: 180px;
+        width: 150px;
+        left: -80px;
+        bottom: 0;
+    }
+    .contact-section h1{
+        font-size: 60px;
+        max-width: 300px;
+    }
+    .footer p{
+        display: none;
+    }
+    .footer ul{
+        margin-left: 70px;
+    }
+}

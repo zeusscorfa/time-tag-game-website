@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tag - About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+   <div class="container"> 
+        <header>
+        
+        <div class="head-left">
+        
+        <!-- MUSIC BUTTON — placed before logo -->
+        <button class="music-btn" onclick="toggleMusic()" title="Toggle Music">
+        <i class='bx bx-volume-full' id="music-icon"></i>
+        </button>
+        <!-- Background music — change src to your music file -->
+        <audio id="bg-music" src="audio/ingame.wav" loop></audio>
+        <!-- ↑ change bgmusic.wav to your actual music filename -->
+        <img src="img/logo.png" alt="logo">
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="map.html" class="nav-btn">Map</a>
+            <a href="character.html" class="nav-btn">Characters</a>
+            <a href="media.html" class="nav-btn">Media</a>
+            <a href="aboutUs.html" class="nav-btn active">About Us</a>
+        </nav>
+    <div class="nav-socials">
+        <a href="https://www.facebook.com/" class="nav-social" target="_blank"> <i class='bx bxl-facebook'></i></a>
+        <a href="https://www.instagram.com/" class="nav-social" target="_blank"> <i class='bx bxl-instagram'></i></a>
+        <a href="https://x.com/" class="nav-social" target="_blank"> <i class='bx bxl-twitter'></i></a>
+        <a href="https://www.youtube.com/" class="nav-social"target="_blank"> <i class='bx bxl-youtube'></i></a>
+            </div>
+                    </div>
+        </header>
+            <section class="aboutUs-section"> 
+                <div class="aboutUs-hero">
+                    <h1>About Us</h1>
+                </div>
+                
+                <div class="aboutUs-content">
+                     <h2>About Darkon 5</h2>
+                <div class="aboutUs-underline">
+                </div>
+                    <p>
+                        We are a small group of student developers who share a strong interest in creating games that people can enjoy with their friends.
+                        What started as a school project turned into a passion for building interactive experiences that are simple to pick up but still
+                        exciting to play. We focus on ideas that bring players together, whether through competition, teamwork, or just having fun in
+                        unpredictable moments.
+                    </p>  
+                    <p>
+                        As students, we are still learning and experimenting with different styles, mechanics, and technologies. Every project we create
+                        is part of our growth, allowing us to improve our skills while exploring new concepts in game design. We value creativity,
+                        collaboration, and feedback, and we take each challenge as an opportunity to get better.
+                    </p>  
+                    <p>
+                        Our goal is to continue developing games that reflect our ideas and personality as a team. We may be starting small,
+                        but we are committed to creating experiences that players will remember and enjoy.
+                    </p>                
+                </div>
+            </section>
+
+            <div class="aboutUs-games">
+                <div class="game-item">
+                    <div class="game-img-box">
+                        <img src="img/TimeTag.jpg" alt="TimeTagGame">
+                </div>
+                <p> Time Tag </p>   
+            </div>
+            
+            <div class="game-item">
+                    <div class="game-img-box">
+                        <img src="img/Cloned.jpeg" alt="ClonedGame">
+                </div>
+                <p> Cloned </p>   
+            </div>
+        </div>
+
+        <section class="footer">
+            <img class="img4" src="img/Asset6.png" alt="TimeTag-img">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+            <img class="img5" src="img/Asset7.png" alt="DarkOn5-img">
+            <p>@Darkon 5 2025. All rights reserved.</p>
+        </section>
+        </div>
+        
+        <script src="app.js"></script>
+ </body>
+</html>
