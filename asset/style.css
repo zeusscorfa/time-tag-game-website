@@ -425,109 +425,238 @@ header{
 
  /* MAP PAGE STYLES */
 
+/* =============================================
+   MAP SECTION
+   ============================================= */
+
 .map-section {
-    min-height: 10px;
-    padding: 80px 40px;
-    text-align: center;
-    margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'PlayfullRocket', 'Tahoma';
 }
 
-.map-image-box {
-    width: 360px;
-    height: 510px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    margin: 0 auto;
+/* Prevent page scroll while on map section */
+body.map-page-active {
+  overflow: hidden;
 }
 
-.map-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+/* --- SLIDES --- */
+.map-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  visibility: hidden;
 }
 
-.map-section > h1 {
-    color: rgb(0, 160, 235);
-    letter-spacing: 6px;
-    font-size: 110px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-family: 'PlayfullRocket', Tahoma, sans-serif;
-    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
-
+.map-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  z-index: 2;
+  visibility: visible;
 }
 
-.bodyMap-section {
-    width: 100%;
-    text-align: center;
+.map-slide.exit-up {
+  opacity: 0;
+  transform: translateY(-60px);
+  pointer-events: none;
+  visibility: visible;
 }
 
-.map-Image-Box {
-    width: 360px;
-    height: 510px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    margin: 0 auto;
+.map-slide.exit-down {
+  opacity: 0;
+  transform: translateY(60px);
+  pointer-events: none;
+  visibility: visible;
 }
 
-.map-Image-Box img {
-    width: 75%;
-    height: 75%;
-    object-fit: cover;
-    border-radius: 16px;
+/* --- SLIDE BACKGROUNDS --- */
+.map-slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  animation: mapBgZoom 8s ease-in-out infinite alternate;
 }
 
-.map-section  h5 {
+@keyframes mapBgZoom {
+    0% { 
+        transform: scale(1.0);
+    }
+    100% { 
+        transform: scale(1.12);
+    }
+}
 
-    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 32px;
-    font-weight: 100;
-    margin: 0 auto;
-    color: #ffffff;
-    max-width: 1000px;
-    line-height: 150px;
-    display: block;
-    width: 80;
+/* Change background images below for each slide */
+.map-slide-bg-0 {
+  /* CHANGE THIS: Landing page background */
+  background-image: url('img/CLOUDBG~2.png');
+  background-color: #a8d8f0;
+}
 
- }
+.map-slide-bg-1 {
+  /* CHANGE THIS: Mondstadt background */
+  background-image: url('img/sunny.jpg');
+  background-color: #6aaf8c;
+}
 
-  .map-section h6 {
-    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 32px;
-    font-weight: 100;;
-    margin: 0 auto;
-    color: #ffffff;
-    max-width: 1000px;
-    line-height: 30px;
-    padding-top: 30px;
-    display: block;
-    width: 80;
+.map-slide-bg-2 {
+  /* CHANGE THIS: Liyue background */
+  background-image: url('img/DUST_2.png');
+  background-color: #c4a45a;
+}
 
- }
-    .map-section p {
-    font-family: 'PlayfullRocket', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 32px;
-    font-weight: 100;
-    margin: -100px auto 0;
-    color: #ffffff;
-    max-width: 1000px;
-    line-height: 10px;
-    display: block;
-    width: 80;
+.map-slide-bg-3 {
+  /* CHANGE THIS: Inazuma background */
+  background-image: url('img/thunder-2.jpg');
+  background-color: #7a5bb5;
+}
 
- }
+.map-slide-bg-4 {
+  /* CHANGE THIS: Sumeru background */
+  background-image: url('img/BLIZZARD.png');
+  background-color: #5a9e5a;
+}
+
+/* Overlay for all slides */
+.map-slide-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+/* --- LANDING CONTENT (Slide 0) --- */
+.map-landing-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  max-width: 680px;
+  padding: 0 24px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.map-landing-title {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 160, 235, 0.6);
+}
+
+.map-landing-underline {
+  width: 320px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7ecef4, transparent);
+  border-radius: 2px;
+  margin: 0 auto 28px auto;
+  position: relative;
+}
+
+
+.map-landing-underline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #7ecef4;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #7ecef4;
+}
+
+.map-landing-desc {
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: 'Tahoma';
+}
+
+/* --- REGION CONTENT (Slides 1-4) --- */
+.map-region-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  max-width: 640px;
+  padding: 0 24px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.map-region-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(0, 160, 235, 0.6);
+}
+
+.map-region-line {
+  display: inline-block;
+  height: 1px;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7));
+}
+
+.map-region-line.right {
+  background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.7));
+}
+
+.map-region-desc {
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Tahoma';
+  margin: 0;
+}
+
+/* --- SCROLL INDICATOR DOTS --- */
+.map-scroll-dots {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.map-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
 
 /* ABOUT US PAGE STYLES */
 
@@ -671,7 +800,7 @@ header{
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: blur(6px);          
+    filter: blur(4px);          
     opacity: 0;
     /* Changed to 12s total cycle for a slower, more "magical" feel */
     animation: slowMoSlideFade 12s infinite ease-in-out;
@@ -748,7 +877,7 @@ header{
     margin: 0;
     letter-spacing: 4px;
     text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(0,160,235,0.6);
+    text-shadow: 0 0 20px rgba(0, 160, 235, 0.6);
 }
 
 /* VA row (voice actor label + mic button) */
