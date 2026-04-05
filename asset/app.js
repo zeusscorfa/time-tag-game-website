@@ -260,3 +260,43 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
   window.addEventListener('keydown', onKeyDown);
 
 })();
+
+/* =============================================
+   MEDIA PAGE JS
+   ============================================= */
+
+// --- SCROLL REVEAL ---
+(function () {
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!revealEls.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+})();
+
+// --- SCREENSHOT SLIDESHOW ---
+(function () {
+  const slides = document.querySelectorAll('.media-slide');
+  const prevBtn = document.getElementById('slidePrev');
+  const nextBtn = document.getElementById('slideNext');
+  if (!slides.length || !prevBtn || !nextBtn) return;
+
+  let current = 0;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+})();

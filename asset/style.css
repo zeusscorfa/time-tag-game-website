@@ -1031,58 +1031,310 @@ body.map-page-active {
 
 /*MEDIA SECTION*/
 
-    .media-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+/* --- LANDING / HERO --- */
+.media-landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* CHANGE THIS: replace with your landing background image */
+  background-image: url('img/CLOUDBG~2.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
 }
-    .media-hero {
-    width: 100%;
-    min-height: 220px;   
-    display: flex;       
-    align-items: left;
-    justify-content: left;      
-    padding: 40px;        
-    box-sizing: border-box;
-    background: linear-gradient(to bottom, #000618, #0a1a3a);
+
+.media-bg-wrapper {
+  width: 100%;
+  position: relative;
 }
-    .media-hero h1 {
-    color: rgb(0, 160, 235);
-    letter-spacing: 6px;
-    font-size: 110px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    margin-left: 150px;
-    font-family: 'PlayfullRocket', Tahoma, sans-serif;
-    background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
+
+.media-bg-wrapper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  /* CHANGE THIS: your fixed background image */
+  background-image: url('img/nightskybg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  z-index: -1;
 }
-    .media-content {
-    width: 100%;
-    max-width: 1700px;          
-    padding: 40px 40px 40px 150px;         
-    box-sizing: border-box;
-    text-align: center;         
+
+.media-landing-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
 }
-    .media-content h3 {
-    font-family: 'PlayfullRocket', Tahoma, sans-serif;
-    font-size: 56px;            
-    font-weight: 400;
-    color: #cdcdcd;
-    margin-bottom: 8px;         
-    text-align: left;
+
+.media-landing-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 24px;
 }
-    .media-underline {
-    width: 25px;                
-    height: 4px;                
-    background-color: #00a0eb;
-    margin: 0 0 400px 0;        
-    border-radius: 2px;
+
+.media-landing-title {
+  font-family: 'PlayfullRocket', Tahoma, sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-top: 250px;
+  text-shadow:
+    0 0 20px rgba(0, 160, 235, 0.7),
+    0 0 40px rgba(0, 160, 235, 0.3);
+}
+
+.media-landing-underline {
+  width: 280px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00a0eb, transparent);
+  margin: 0 auto 24px auto;
+  border-radius: 2px;
+}
+
+.media-landing-desc {
+  font-family: Tahoma, sans-serif;
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* --- SECTION HEADERS (shared) --- */
+.media-section-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 80px;
+  margin-bottom: 50px;
+}
+
+.media-section-title {
+  font-family: 'PlayfullRocket', Tahoma, sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin: 0 0 12px 0;
+  text-shadow:
+    0 0 18px rgba(0, 160, 235, 0.6),
+    0 0 40px rgba(0, 160, 235, 0.2);
+}
+
+.media-section-underline {
+  width: 60px;
+  height: 3px;
+  background: #00a0eb;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* --- GAME FEATURES --- */
+.media-features-section {
+  padding-bottom: 80px;
+}
+
+.media-feature-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto 70px auto;
+  padding: 0 40px;
+}
+
+.media-feature-text {
+  flex: 1;
+  min-width: 260px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-left: 3px solid #00a0eb;
+  padding: 24px 20px;
+  border-radius: 4px;
+}
+
+.media-feature-text h3 {
+  font-family: 'PlayfullRocket', Tahoma, sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-weight: 400;
+  color: #00cfff;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0, 207, 255, 0.4);
+}
+
+.media-feature-text p {
+  font-family: Tahoma, sans-serif;
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+.media-feature-img-box {
+  flex: 1.4;
+  min-width: 700px;
+  border: 1px solid rgba(0, 160, 235, 0.3);
+  overflow: hidden;
+  box-shadow:
+    0 0 20px rgba(0, 160, 235, 0.2),
+    0 0 50px rgba(0, 160, 235, 0.08);
+}
+
+.media-feature-img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  background: rgba(255, 255, 255, 0.05);
+  /* CHANGE THIS: replace src on img tag in HTML */
+}
+
+/* Remove individual backgrounds from each section */
+.media-features-section,
+.media-screenshots-section,
+.media-cta-section {
+  position: relative;
+  width: 100%;
+  background: none;
+}
+
+/* --- GAME SCREENSHOTS --- */
+.media-screenshots-section {
+  padding-bottom: 80px;
+}
+
+.media-slideshow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.media-slide-track {
+  position: relative;
+  width: 1080px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.media-slide {
+  display: none;
+}
+
+.media-slide.active {
+  display: block;
+}
+
+.media-slide img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(0, 160, 235, 0.3);
+  box-shadow: 0 0 30px rgba(75, 146, 179, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  /* CHANGE THIS: replace src on each img tag in HTML */
+}
+
+.media-slide-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 6rem;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.media-slide-btn:hover {
+  background: none;
+  border-color: none;
+  color: #00cfff;
+}
+
+/* --- CTA BOTTOM SECTION --- */
+.media-cta-section {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.media-cta-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+}
+
+.media-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.media-cta-logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 12px;
+}
+
+.media-cta-title {
+  font-family: 'PlayfullRocket', Tahoma, sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0 0 14px 0;
+  background: linear-gradient(to right, #A8ECFF, #010046, #1F57A1, #07B6E8, #A8ECFF);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+}
+
+.media-cta-sub {
+  font-family: Tahoma, sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* --- SCROLL REVEAL ANIMATION --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*CONTACT SECTION */
