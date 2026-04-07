@@ -12,27 +12,21 @@ window.addEventListener('load', function () {
     const isMuted = localStorage.getItem('musicMuted') === 'true';
     const savedTime = parseFloat(localStorage.getItem('musicTime') || '0');
 
-    /* Set correct icon state on load */
     if (isMuted) {
         icon.className = 'bx bx-volume-mute';
         btn.classList.remove('playing');
-        return; /* ← stop here if muted */
+        return;
     }
 
-    /* Try autoplay first */
     music.currentTime = savedTime;
     music.play().then(() => {
-        /* Autoplay worked */
         btn.classList.add('playing');
         icon.className = 'bx bx-volume-full';
 
     }).catch(() => {
-        /* Autoplay blocked by browser (happens on pages with videos) */
-        /* Show the icon as muted until user clicks */
         icon.className = 'bx bx-volume-mute';
         btn.classList.remove('playing');
 
-        /* Listen for ANY click on the page */
         document.addEventListener('click', function startMusic() {
             const stillMuted = localStorage.getItem('musicMuted') === 'true';
             if (!stillMuted) {
@@ -42,12 +36,10 @@ window.addEventListener('load', function () {
                     icon.className = 'bx bx-volume-full';
                 });
             }
-            /* Remove listener so it only fires once */
             document.removeEventListener('click', startMusic);
         });
     });
 
-    /* Save playback position every second */
     setInterval(() => {
         if (!music.paused) {
             localStorage.setItem('musicTime', music.currentTime);
@@ -85,40 +77,49 @@ function playVoice() {
 // --- Character selector ---
 function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
 
-    /* Remove active from all thumbnails */
     document.querySelectorAll('.char-thumb').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
 
-    /* Update character name */
     document.querySelector('.char-name').textContent = name;
 
-    /* Update character art — this is the key fix */
     const artImg = document.querySelector('.char-art img');
-    artImg.src = artSrc;        /* ← swaps the image */
+    artImg.src = artSrc;
     artImg.alt = name;
 
-    /* Update VA label */
     document.querySelector('.char-va-label').textContent = va;
 
-    /* Update description */
     document.querySelector('.char-desc-box p').textContent = desc;
 
-    /* Update audio source */
     const audio = document.getElementById('char-voice');
     audio.src = audioSrc;
     audio.load();
 
-    /* Update video source */
     const video = document.querySelector('.char-video-panel video');
-    video.src = videoSrc;       /* ← swaps the video */
-    video.load();               /* ← reloads with new source */
-    video.play();               /* ← starts playing immediately */
+    video.src = videoSrc;
+    video.load();
+    video.play();
     
 }
 
-/* =============================================
-   MAP SECTION JS
-   ============================================= */
+// AUTO-SELECT CHARACTER FROM URL
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const charParam = params.get('char');
+    if (!charParam) return;
+
+    const thumbs = document.querySelectorAll('.char-thumb');
+    if (!thumbs.length) return;
+
+    thumbs.forEach(thumb => {
+        const name = thumb.querySelector('span').textContent.trim().toUpperCase();
+        if (name === charParam.toUpperCase()) {
+            thumb.click();
+        }
+    });
+})();
+
+//   MAP SECTION JS
+
 
 (function () {
 
@@ -131,10 +132,8 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
   let isAnimating = false;
   let wheelLocked = false;
 
-  // Lock page scroll on map page
   document.body.style.overflow = 'hidden';
 
-  // ---- INJECT SCROLL DOTS ----
   const dotsContainer = document.createElement('div');
   dotsContainer.className = 'map-scroll-dots';
   for (let i = 0; i < totalSlides; i++) {
@@ -152,14 +151,12 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
   }
 
   // ---- FOOTER REVEAL ----
-  // When on last slide and user scrolls down, unlock page scroll to show footer
-  // When user scrolls back up into footer area, re-lock and go back to last slide
+
   function unlockForFooter() {
     document.body.style.overflow = '';
     window.removeEventListener('wheel', onWheel);
     window.removeEventListener('keydown', onKeyDown);
 
-    // Watch for scroll back up to re-enter map
     window.addEventListener('scroll', function reEnterMap() {
       if (window.scrollY === 0) {
         document.body.style.overflow = 'hidden';
@@ -175,7 +172,6 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
     if (isAnimating || wheelLocked) return;
     if (next === currentSlide) return;
 
-    // If past last slide going down, show footer
     if (next >= totalSlides) {
       unlockForFooter();
       return;
@@ -190,18 +186,15 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
     const nextSlide = slides[next];
     const goingDown = next > currentSlide;
 
-    // Exit current slide
     current.classList.remove('active');
     current.classList.add(goingDown ? 'exit-up' : 'exit-down');
 
-    // Prepare next slide off-screen instantly (no transition)
     nextSlide.style.transition = 'none';
     nextSlide.style.transform = goingDown ? 'translateY(60px)' : 'translateY(-60px)';
     nextSlide.style.opacity = '0';
     nextSlide.classList.remove('exit-up', 'exit-down');
     nextSlide.classList.add('active');
 
-    // Force reflow then animate in
     void nextSlide.offsetHeight;
 
     nextSlide.style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1)';
@@ -300,3 +293,29 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 })();
+
+// TRAILER MODAL
+// ↓ Replace this with your actual YouTube video ID (the part after ?v= in the URL)
+const TRAILER_YOUTUBE_ID = 'Hfm94aHAbYQ';
+
+function openTrailer() {
+  const modal = document.getElementById('trailer-modal');
+  const iframe = document.getElementById('trailer-iframe');
+  iframe.src = `https://www.youtube.com/embed/${TRAILER_YOUTUBE_ID}?autoplay=1`;
+  modal.classList.add('active');
+}
+
+function closeTrailer(event) {
+  // Close if clicking the dark overlay OR the X button
+  if (event && event.target !== document.getElementById('trailer-modal') && event.type !== 'click') return;
+  if (event && event.currentTarget === document.getElementById('trailer-modal') && event.target !== event.currentTarget) return;
+  const modal = document.getElementById('trailer-modal');
+  const iframe = document.getElementById('trailer-iframe');
+  modal.classList.remove('active');
+  iframe.src = ''; // stops the video when closed
+}
+
+// Also close with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeTrailer();
+});

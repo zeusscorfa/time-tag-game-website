@@ -222,21 +222,6 @@ header{
     border: 2px solid #1F57A1;
 }
 
-/*
-
- .gaming-text{
-    color: #010046;
-    font-size: 120px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0;
-    position: absolute;
-    right: 20px;
-    bottom: 30px;
-  
-}
-
-*/ 
-
 /* ABOUT SECTION */
 
 .about-section{
@@ -431,6 +416,51 @@ header{
 .card:nth-child(2){
     grid-column: span 2;
     height: 83vh;
+}
+
+/* TRAILER MODAL */
+.trailer-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.trailer-modal-overlay.active {
+  display: flex;
+}
+
+.trailer-modal-box {
+  position: relative;
+  width: 90%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid rgba(0, 160, 235, 0.4);
+  box-shadow: 0 0 40px rgba(0, 160, 235, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.trailer-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.trailer-close-btn:hover {
+  color: #00cfff;
 }
 
  /* MAP PAGE STYLES */
@@ -726,7 +756,7 @@ body.map-page-active {
     border-radius: 2px;
 }
     .aboutUs-content p {
-    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-family: Tahoma, sans-serif;
     font-size: 26px;           
     font-weight: 100;
     color: #cdcdcd;
@@ -1096,7 +1126,7 @@ body.map-page-active {
   font-weight: 700;
   letter-spacing: 0.06em;
   color: #fff;
-  margin-top: 250px;
+  margin-top: 210px;
   text-shadow:
     0 0 20px rgba(0, 160, 235, 0.7),
     0 0 40px rgba(0, 160, 235, 0.3);
@@ -1106,7 +1136,7 @@ body.map-page-active {
   width: 280px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #00a0eb, transparent);
-  margin: 0 auto 24px auto;
+  margin: -50px auto 12px auto;
   border-radius: 2px;
 }
 
@@ -1201,7 +1231,7 @@ body.map-page-active {
 
 .media-feature-img {
   width: 100%;
-  height: 360px;
+  height: 420px;
   object-fit: cover;
   display: block;
   background: rgba(255, 255, 255, 0.05);
@@ -1433,7 +1463,7 @@ body.map-page-active {
     background-color: #384c83;
     backdrop-filter: blur(10px);
     position: relative;
-    height: 250;
+    height: 250px;
     gap: 10px;
 }
 

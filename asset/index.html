@@ -6,6 +6,7 @@
     <title>Time Tag</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="img/logo.png" type="img/x-icon">
 </head>
 <body>
    <div class="container"> 
@@ -46,7 +47,7 @@
                 <div class="tt-info">
                     <h1>Time Tag</h1>
                     <p>In the skies above, every second counts. Dont be the last one holding the bomb.</p>
-                    <button>Watch Trailer</button>
+                    <button onclick="openTrailer()">Watch Trailer</button>
                 </div>
             </div>
         </section>
@@ -73,7 +74,7 @@
                     <p>Proposed game by Darkon 5 studio of BSEMC-3B.</p>
 
                     <video src="video/AKA.mp4" autoplay loop muted plays-inline></video>
-                    <button>COMING SOON</button>
+                    <button onclick="window.location.href='character.html?char=AKA'">VIEW CHARACTER</button>
                 </div>
 
                 <div class="card autoDisplay">
@@ -81,7 +82,7 @@
                     <p>Set in a floating island.</p>
 
                     <video src="video/AO.mp4" autoplay loop muted plays-inline></video>
-                    <button>COMING SOON</button>
+                    <button onclick="window.location.href='character.html?char=AO'">VIEW CHARACTER</button>
                 </div>
 
                 <div class="card autoDisplay">
@@ -89,14 +90,14 @@
                     <p>Move fast, think faster, and escape the explosion.</p>
 
                     <video src="video/KI.mp4" autoplay loop muted plays-inline></video>
-                    <button>COMING SOON</button>
+                    <button onclick="window.location.href='character.html?char=KI'">VIEW CHARACTER</button>
                 </div>
 
                 <div class="card autoDisplay">
                     <h1>MIDORI</h1>
                     <p>Tag 'em! Jump across the island.</p>
                     <video src="video/MIDORI.mp4" autoplay loop muted plays-inline></video>
-                    <button>COMING SOON</button> 
+                    <button onclick="window.location.href='character.html?char=MIDORI'">VIEW CHARACTER</button> 
                 </div>
             </div>
         </section>
@@ -106,7 +107,7 @@
             <div class="autoBlur">
                 <h1>Jump into the floating arena of Time Tag</h1>
             </div>      
-            <button>CONTACT US</button>
+            <button onclick="window.location.href='aboutUs.html'">CONTACT US</button>
             <img class="img1" src="img/bomb1.png" alt="contact-img">
             <img class="img2" src="img/bomb2.png" alt="contact-img">
             <img class="img3" src="img/bomb3.png" alt="contact-img"> 
@@ -125,6 +126,21 @@
         </section>
     </div>
 
+    <!-- TRAILER MODAL -->
+<div id="trailer-modal" class="trailer-modal-overlay" onclick="closeTrailer(event)">
+  <div class="trailer-modal-box">
+    <button class="trailer-close-btn" onclick="closeTrailer()">&#10005;</button>
+    <iframe
+      id="trailer-iframe"
+      src=""
+      width="100%"
+      height="100%"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
     <script src="app.js"></script>
 </body>
