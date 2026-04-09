@@ -56,6 +56,7 @@ header{
 
 }
 
+
 /*MUSIC BUTTON*/
 
 .music-btn {
@@ -766,6 +767,66 @@ body.map-page-active {
     max-width: 100%;           
     margin-left: 0;
     margin-right: 0;
+}
+
+/* MEMBERS SECTION */
+.aboutUs-members {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.aboutUs-members-title {
+    font-family: 'PlayfullRocket', Tahoma, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #cdcdcd;
+    text-align: left;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+}
+
+.aboutUs-members-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 160, 235, 0.07);
+    border: 1px solid rgba(0, 160, 235, 0.25);
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 245px;
+    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.member-card:hover {
+    background: rgba(0, 160, 235, 0.15);
+    border-color: rgba(0, 160, 235, 0.6);
+    box-shadow: 0 0 12px rgba(0, 160, 235, 0.2);
+}
+
+.member-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 160, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #00cfff;
+    flex-shrink: 0;
+}
+
+.member-card span {
+    font-family: Tahoma, sans-serif;
+    font-size: 16px;
+    color: #cdcdcd;
+    white-space: nowrap;
 }
 
 .aboutUs-games {
@@ -1560,63 +1621,614 @@ body.map-page-active {
     }
 }
 
-@media screen and (max-width: 650px){
-    header{
-        padding: 0px 10px;
+/* ==============================================
+   RESPONSIVE STYLES
+   Breakpoints:
+     - Tablet:  max-width 1024px
+     - Mobile:  max-width 768px
+     - Small:   max-width 480px
+   ============================================== */
+
+/* ---- TABLET (≤ 1024px) ---- */
+@media screen and (max-width: 1024px) {
+
+    /* Header */
+    header {
+        padding: 5px 24px;
     }
-    .head-left button{
+
+    .head-left img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nav-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    /* Hero */
+    .tt-info h1 {
+        font-size: 100px;
+    }
+
+    .tt-info p {
+        font-size: 17px;
+    }
+
+    /* About */
+    .about-section h1 {
+        font-size: 72px;
+    }
+
+    .about-section h3 {
+        font-size: 30px;
+    }
+
+    /* Info cards – keep 2-col but smaller */
+    .info-section {
+        width: 92%;
+        padding-left: 0;
+    }
+
+    /* Characters */
+    .char-video-panel {
+        width: 240px;
+        right: 24px;
+        bottom: 130px;
+    }
+
+    .char-video-panel video {
+        height: 140px;
+    }
+
+    .char-name {
+        font-size: 60px;
+    }
+
+    /* About Us */
+    .aboutUs-hero h1 {
+        font-size: 80px;
+        margin-left: 60px;
+    }
+
+    .aboutUs-content {
+        padding: 40px 40px 40px 60px;
+    }
+
+    .aboutUs-content p {
+        font-size: 20px;
+    }
+
+    /* Media feature image min-width fix */
+    .media-feature-img-box {
+        min-width: 0;
+        flex: 1.2;
+    }
+}
+
+/* ---- MOBILE (≤ 768px) ---- */
+@media screen and (max-width: 768px) {
+
+    /* ── HEADER: hamburger nav ── */
+    header {
+        padding: 0 14px;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .head-left {
+        flex-wrap: nowrap;
+        position: relative;
+    }
+
+    .head-left img {
+        width: 48px;
+        height: 48px;
+        margin-right: 6px;
+    }
+
+    /* Hide desktop nav & socials by default */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 15, 40, 0.97);
+        backdrop-filter: blur(12px);
+        padding: 16px 0 20px;
+        gap: 0;
+        z-index: 999;
+        border-bottom: 1px solid rgba(0,160,235,0.3);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-btn {
+        font-size: 18px;
+        padding: 14px 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-socials {
         display: none;
     }
-    .head-right a{
-        padding: 0 5px;
-        font-size: 12px;
+
+    /* Hamburger button */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: auto;
+        padding: 8px;
     }
-    .tt-info{
-        left: 5%;
+
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.3s;
     }
-    .tt-section h1{
-        font-size: 90px;
+
+    .hamburger-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
     }
-    .about-section{
-        margin: 0;
+
+    .hamburger-btn.open span:nth-child(2) {
+        opacity: 0;
     }
-    .about-section h1{
-        font-size: 50px;
+
+    .hamburger-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
-    .image-box{
-        width: 300px;
-        height: 500px;
+
+    /* ── HERO (index) ── */
+    .tt-section {
+        height: 100svh;
     }
-    .about-section h4, .about-section h5{
-        max-width: 350px;
+
+    .tt-info {
+        top: 90px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .tt-info h1 {
+        font-size: clamp(52px, 14vw, 90px);
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+
+    .tt-info p {
+        font-size: 15px;
+        max-width: 260px;
+    }
+
+    .tt-info button {
+        padding: 10px 28px;
+        font-size: 14px;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+        margin-top: 80px;
+        padding: 0 16px;
+    }
+
+    .about-section h3 {
+        font-size: 22px;
         text-align: center;
     }
-    .contact-section .img1{
-        height: 200px;
-        width: 150px;
-        right: -80px;
-        top: 10px;
+
+    .about-section h1 {
+        font-size: clamp(36px, 10vw, 60px);
+        margin: 10px 0;
     }
-    .contact-section .img2{
-        height: 180px;
-        width: 150px;
-        left: -80px;
-        top: 30px;
+
+    .image-box {
+        width: 88vw;
+        height: 60vw;
+        max-height: 380px;
+        border-radius: 24px;
     }
-    .contact-section .img3{
-        height: 180px;
-        width: 150px;
-        left: -80px;
-        bottom: 0;
+
+    .about-section h4 {
+        font-size: 18px;
+        text-align: center;
+        max-width: 320px;
+        margin-top: 24px;
     }
-    .contact-section h1{
-        font-size: 60px;
-        max-width: 300px;
+
+    .about-section p {
+        font-size: 14px;
+        max-width: 320px;
     }
-    .footer p{
+
+    /* ── INFO / CHARACTER CARDS ── */
+    .info-section {
+        width: 95%;
+        margin-top: 60px;
+        padding-left: 0;
+    }
+
+    .info-section h3 {
+        font-size: 1.6rem;
+    }
+
+    .info-section p {
+        font-size: 14px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card {
+        height: 52vw;
+        min-height: 200px;
+    }
+
+    /* Reset the special spanning on mobile */
+    .card:nth-child(1),
+    .card:nth-child(2) {
+        grid-column: span 1;
+        height: 52vw;
+        min-height: 200px;
+    }
+
+    .card h1 {
+        font-size: 40px;
+    }
+
+    .card p {
+        font-size: 13px;
+        max-width: 200px;
+    }
+
+    /* ── CONTACT SECTION ── */
+    .contact-section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 0 16px;
+    }
+
+    .contact-section p {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+
+    .contact-section h1 {
+        font-size: clamp(28px, 8vw, 44px);
+        max-width: 280px;
+    }
+
+    /* Hide decorative bomb images on mobile — they overlap badly */
+    .contact-section .img1,
+    .contact-section .img2,
+    .contact-section .img3 {
         display: none;
     }
-    .footer ul{
-        margin-left: 70px;
+
+    /* ── FOOTER ── */
+    .footer {
+        height: auto;
+        padding: 20px 16px;
+        gap: 8px;
+    }
+
+    .footer .img4 {
+        width: 110px;
+        margin-top: 10px;
+    }
+
+    .footer .img5 {
+        width: 180px;
+        margin-top: 8px;
+    }
+
+    .footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 8px 0 0;
+        padding: 0;
+    }
+
+    .footer a {
+        padding: 5px 6px;
+        font-size: 11px;
+    }
+
+    .footer p {
+        display: block;
+        font-size: 11px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+
+    /* ── MAP PAGE ── */
+    .map-landing-content,
+    .map-region-content {
+        padding: 0 20px;
+        max-width: 95vw;
+    }
+
+    .map-landing-title {
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        letter-spacing: 1px;
+    }
+
+    .map-landing-underline {
+        width: 200px;
+    }
+
+    .map-landing-desc,
+    .map-region-desc {
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+
+    .map-region-title {
+        font-size: clamp(1.3rem, 5vw, 2rem);
+        gap: 10px;
+    }
+
+    .map-region-line {
+        width: 60px;
+    }
+
+    .map-scroll-dots {
+        right: 12px;
+        gap: 8px;
+    }
+
+    /* ── CHARACTER PAGE ── */
+    .char-section {
+        height: 100svh;
+        justify-content: flex-end;
+    }
+
+    .char-main {
+        padding: 80px 20px 12px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .char-info {
+        max-width: 100%;
+        gap: 10px;
+        margin-top: 0;
+    }
+
+    .char-name {
+        font-size: clamp(36px, 10vw, 56px);
+    }
+
+    .char-va-label {
+        font-size: 14px;
+    }
+
+    .char-desc-box {
+        max-width: 90vw;
+    }
+
+    .char-desc-box p {
+        font-size: 13px;
+    }
+
+    /* Character art – shift so it doesn't cover text */
+    .char-art {
+        height: 45vh;
+        bottom: 140px;
+        left: auto;
+        right: 10px;
+        transform: none;
+    }
+
+    .char-art img {
+        height: 100%;
+    }
+
+    /* Hide video panel on small screens – keeps layout clean */
+    .char-video-panel {
+        display: none;
+    }
+
+    .char-selector {
+        gap: 10px;
+        padding-bottom: 12px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-left: 16px;
+        padding-right: 16px;
+        scrollbar-width: none;
+    }
+
+    .char-selector::-webkit-scrollbar {
+        display: none;
+    }
+
+    .char-thumb {
+        width: 72px;
+        flex-shrink: 0;
+        padding: 6px 8px;
+    }
+
+    .char-thumb img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .char-thumb span {
+        font-size: 11px;
+    }
+
+    /* ── ABOUT US PAGE ── */
+    .aboutUs-hero {
+        min-height: 160px;
+        padding: 24px 20px;
+    }
+
+    .aboutUs-hero h1 {
+        font-size: clamp(40px, 12vw, 70px);
+        margin-top: 50px;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .aboutUs-content {
+        padding: 24px 20px;
+        max-width: 100%;
+    }
+
+    .aboutUs-content h2 {
+        font-size: 32px;
+    }
+
+    .aboutUs-content p {
+        font-size: 16px;
+    }
+
+    .aboutUs-members-grid {
+        gap: 10px;
+    }
+
+    .member-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .aboutUs-games {
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    /* ── MEDIA PAGE ── */
+    .media-landing-title {
+        font-size: clamp(2rem, 9vw, 4rem);
+        margin-top: 120px;
+    }
+
+    .media-landing-underline {
+        width: 180px;
+        margin-top: -30px;
+    }
+
+    .media-landing-desc {
+        font-size: 0.88rem;
+    }
+
+    .media-section-header {
+        padding-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .media-feature-row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+        margin-bottom: 50px;
+    }
+
+    .media-feature-img-box {
+        min-width: 0;
+        width: 100%;
+        flex: unset;
+    }
+
+    .media-feature-img {
+        height: 220px;
+    }
+
+    .media-feature-text {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .media-slideshow {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .media-slide-track {
+        width: 100%;
+    }
+
+    .media-slide img {
+        height: 220px;
+    }
+
+    .media-slide-btn {
+        font-size: 3.5rem;
+        width: 40px;
+    }
+
+    .media-cta-content {
+        padding: 50px 20px;
+    }
+
+    .media-cta-logo {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* ---- SMALL PHONES (≤ 480px) ---- */
+@media screen and (max-width: 480px) {
+
+    .tt-info h1 {
+        font-size: clamp(42px, 13vw, 68px);
+    }
+
+    .about-section h1 {
+        font-size: clamp(30px, 9vw, 50px);
+    }
+
+    .card {
+        height: 64vw;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2) {
+        height: 64vw;
+    }
+
+    .contact-section h1 {
+        font-size: clamp(24px, 7vw, 36px);
+    }
+
+    .aboutUs-hero h1 {
+        font-size: clamp(32px, 10vw, 52px);
+    }
+
+    .char-name {
+        font-size: clamp(30px, 9vw, 44px);
+    }
+
+    .char-art {
+        height: 38vh;
+    }
+
+    .media-feature-img {
+        height: 180px;
+    }
+
+    .media-slide img {
+        height: 180px;
     }
 }

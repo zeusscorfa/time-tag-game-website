@@ -12,13 +12,10 @@
    <div class="container"> 
         <header>
             <div class="head-left">
-                <!-- MUSIC BUTTON — placed before logo -->
                 <button class="music-btn" onclick="toggleMusic()" title="Toggle Music">
                 <i class='bx bx-volume-full' id="music-icon"></i>
                 </button>
-                <!-- Background music — change src to your music file -->
                 <audio id="bg-music" src="audio/ingame.wav" loop></audio>
-            <!-- ↑ change bgmusic.wav to your actual music filename -->
                 <img src="img/logo.png" alt="logo">
 
                 <nav class="nav-links">
@@ -41,33 +38,25 @@
 
             <div class="char-bg">
                 <div class="char-bg-slide" style="background-image: url('img/CLOUDBG~2.png')"></div>
-                <!-- ↑ change bg1.jpg to your first scenery image -->
                 <div class="char-bg-slide" style="background-image: url('img/nightskybg.png')"></div>
-                <!-- ↑ change bg2.jpg to your second scenery image -->
 
             </div>
 
             <!-- MAIN CHARACTER DISPLAY AREA -->
             <div class="char-main">
 
-                <!-- LEFT: Character info -->
                 <div class="char-info">
 
-                    <!-- Character name — updates when thumbnail is clicked -->
                     <h1 class="char-name">AKA</h1>
 
-                    <!-- Voice actor row with mic button -->
                     <div class="char-va-row">
                         <span class="char-va-label">VA: Lorem Ipsum</span>
-                        <!-- ↑ change to real VA name -->
                         <button class="char-voice-btn" onclick="playVoice()">
                             <i class='bx bx-microphone'></i>
                         </button>
                         <audio id="char-voice" src="audio/aka.mp3"></audio>
-                        <!-- ↑ change to your audio file -->
                     </div>
 
-                    <!-- Description box -->
                     <div class="char-desc-box">
                         <p>
                             AKA burns in red. Loud, sharp, and impossible to miss. When it moves, it demands attention. No fade, no escape, You always see it coming.
@@ -76,44 +65,36 @@
 
                 </div>
 
-                <!-- CENTER: Character full body art -->
                 <div class="char-art">
                     <img src="img/aka-art.png" alt="AKA">
-                    <!-- ↑ change to your character art image -->
                 </div>
 
             </div>
 
-            <!-- BOTTOM: 4 character thumbnails centered -->
             <div class="char-selector">
 
                 <div class="char-thumb active" onclick="selectChar(this, 'AKA', 'img/aka-art.png', 'VA: Lorem Ipsum', ' AKA burns in red. Loud, sharp, and impossible to miss. When it moves, it demands attention. No fade, no escape, You always see it coming.', 'audio/aka.mp3', 'video/AKA.mp4')">
                     <img src="img/aka.png" alt="AKA">
-                    <!-- ↑ change to AKA thumbnail -->
                     <span>AKA</span>
                 </div>
 
                 <div class="char-thumb" onclick="selectChar(this, 'AO', 'img/ao-art.png', 'VA: Lorem Ipsum', 'AO appears in a deep blue tone, clean and distinct on the map. Its color provides a sharp contrast that keeps movements visible at all times.', 'audio/ao.mp3', 'video/AO.mp4')">
                     <img src="img/ao.png" alt="AO">
-                    <!-- ↑ change to AO thumbnail -->
                     <span>AO</span>
                 </div>
 
                 <div class="char-thumb" onclick="selectChar(this, 'KI', 'img/ki-art.png', 'VA: Lorem Ipsum', 'KI flashes across the map with high visibility. Turning every movement into something noticeable in the middle of the rush.', 'audio/ki.mp3', 'video/KI.mp4')">
                     <img src="img/ki.png" alt="KI">
-                    <!-- ↑ change to KI thumbnail -->
                     <span>KI</span>
                 </div>
 
                 <div class="char-thumb" onclick="selectChar(this, 'MIDORI', 'img/midori-art.png', 'VA: Lorem Ipsum', 'MIDORI blends and breaks through at the same time. The green tone holds steady in motion, keeping every interaction clear even when the pace starts to spike.', 'audio/midori.mp3', 'video/MIDORI.mp4')">
                     <img src="img/midori.png" alt="MIDORI">
-                    <!-- ↑ change to MIDORI thumbnail -->
                     <span>MIDORI</span>
                 </div>
 
             </div>
                 
-                <!-- RIGHT: Video panel -->
                 <div class="char-video-panel">
                 <video src="video/AKA.mp4" autoplay loop muted playsinline></video>
             </div>

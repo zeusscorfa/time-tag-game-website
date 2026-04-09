@@ -1,3 +1,41 @@
+// HAMBURGER MENU (mobile nav)
+(function () {
+    const navLinks = document.querySelector('.nav-links');
+    if (!navLinks) return;
+
+    // Create hamburger button
+    const btn = document.createElement('button');
+    btn.className = 'hamburger-btn';
+    btn.setAttribute('aria-label', 'Toggle navigation');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+
+    // Insert it after the socials (or at end of head-left)
+    const headLeft = document.querySelector('.head-left');
+    if (headLeft) headLeft.appendChild(btn);
+
+    btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+    });
+
+    // Close when a nav link is clicked
+    navLinks.querySelectorAll('.nav-btn').forEach(function (link) {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            btn.classList.remove('open');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!headLeft.contains(e.target)) {
+            navLinks.classList.remove('open');
+            btn.classList.remove('open');
+        }
+    });
+})();
+
 // BACKGROUND MUSIC
 
 window.addEventListener('load', function () {
@@ -295,7 +333,7 @@ function selectChar(el, name, artSrc, va, desc, audioSrc, videoSrc) {
 })();
 
 // TRAILER MODAL
-// ↓ Replace this with your actual YouTube video ID (the part after ?v= in the URL)
+
 const TRAILER_YOUTUBE_ID = 'Hfm94aHAbYQ';
 
 function openTrailer() {
@@ -306,16 +344,15 @@ function openTrailer() {
 }
 
 function closeTrailer(event) {
-  // Close if clicking the dark overlay OR the X button
   if (event && event.target !== document.getElementById('trailer-modal') && event.type !== 'click') return;
   if (event && event.currentTarget === document.getElementById('trailer-modal') && event.target !== event.currentTarget) return;
   const modal = document.getElementById('trailer-modal');
   const iframe = document.getElementById('trailer-iframe');
   modal.classList.remove('active');
-  iframe.src = ''; // stops the video when closed
+  iframe.src = ''; 
 }
 
-// Also close with Escape key
+
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeTrailer();
 });
